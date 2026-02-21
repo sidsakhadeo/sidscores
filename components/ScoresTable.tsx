@@ -1,45 +1,47 @@
 import type { Player } from "@/types/game";
 
 interface ScoresTableProps {
-	players: Player[]; // expected to be pre-sorted
+  players: Player[]; // expected to be pre-sorted
 }
 
 export default function ScoresTable({ players }: ScoresTableProps) {
-	return (
-		<div className="w-full overflow-x-auto">
-			<table className="w-full border-collapse text-sm">
-				<thead>
-					<tr className="bg-gray-100 text-gray-700">
-						<th className="px-4 py-3 text-left font-semibold border border-gray-200 w-12">
-							#
-						</th>
-						<th className="px-4 py-3 text-left font-semibold border border-gray-200">
-							Player
-						</th>
-						<th className="px-4 py-3 text-right font-semibold border border-gray-200 w-24">
-							Score
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					{players.map((player, index) => (
-						<tr
-							key={player.id}
-							className="even:bg-gray-50 hover:bg-blue-50 transition-colors"
-						>
-							<td className="px-4 py-3 border border-gray-200 text-gray-500 font-medium">
-								{index + 1}
-							</td>
-							<td className="px-4 py-3 border border-gray-200 font-medium text-gray-900">
-								{player.name}
-							</td>
-							<td className="px-4 py-3 border border-gray-200 text-right font-semibold text-blue-600">
-								{player.score}
-							</td>
-						</tr>
-					))}
-				</tbody>
-			</table>
-		</div>
-	);
+  return (
+    <div className="space-y-2">
+      {players.map((player, index) => (
+        <div
+          key={player.id}
+          className={`flex items-center gap-3 rounded-xl px-4 py-3 border ${
+            index === 0
+              ? "bg-amber-50 border-amber-200"
+              : "bg-stone-50 border-stone-100"
+          }`}
+        >
+          {/* Rank badge */}
+          <span
+            className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-extrabold ${
+              index === 0
+                ? "bg-amber-400 text-amber-900"
+                : "bg-stone-200 text-stone-600"
+            }`}
+          >
+            {index + 1}
+          </span>
+
+          {/* Name */}
+          <span className="flex-1 font-semibold text-stone-900 text-sm">
+            {player.name}
+          </span>
+
+          {/* Score */}
+          <span
+            className={`font-extrabold text-lg tabular-nums ${
+              index === 0 ? "text-amber-600" : "text-stone-700"
+            }`}
+          >
+            {player.score}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
 }

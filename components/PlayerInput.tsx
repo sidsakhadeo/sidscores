@@ -14,20 +14,26 @@ export default function PlayerInput({
 	canRemove,
 }: PlayerInputProps) {
 	return (
-		<div className="flex items-center gap-2">
+		<div className="flex items-center gap-3">
+			{/* Number chip */}
+			<span className="shrink-0 w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex items-center justify-center select-none">
+				{index + 1}
+			</span>
+
 			<input
 				type="text"
 				value={value}
 				onChange={(e) => onChange(e.target.value)}
 				placeholder={`Player ${index + 1}`}
-				className="flex-1 border border-gray-300 rounded-lg px-4 py-2.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+				className="flex-1 border border-stone-200 rounded-xl px-4 py-3 text-base text-stone-900 placeholder-stone-300 bg-stone-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
 			/>
+
 			<button
 				type="button"
 				onClick={onRemove}
 				disabled={!canRemove}
 				aria-label={`Remove player ${index + 1}`}
-				className="shrink-0 w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-red-50 hover:border-red-300 hover:text-red-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-gray-300 disabled:hover:text-gray-500"
+				className="shrink-0 w-10 h-10 flex items-center justify-center rounded-xl text-stone-400 hover:bg-rose-50 hover:text-rose-500 transition-colors disabled:opacity-20 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-stone-400"
 			>
 				✕
 			</button>

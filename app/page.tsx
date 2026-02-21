@@ -4,45 +4,33 @@ import Link from "next/link";
 
 export default function HomePage() {
 	return (
-		<main className="min-h-screen bg-white flex items-center justify-center px-4">
-			<div className="w-full max-w-md text-center">
-				{/* App title */}
-				<h1 className="text-5xl font-extrabold text-gray-900 mb-3">Kali3</h1>
-				<p className="text-lg text-blue-600 font-medium mb-8">
-					Kali Teeri Scorecard
-				</p>
-
-				{/* Description */}
-				<div className="bg-gray-50 rounded-2xl p-6 mb-8 text-left space-y-3">
-					<p className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
-						This app tracks:
-					</p>
-					<div className="flex items-start gap-3">
-						<span className="text-blue-500 mt-0.5">🏆</span>
-						<p className="text-gray-700">
-							Who&apos;s the highest bidder each round
-						</p>
-					</div>
-					<div className="flex items-start gap-3">
-						<span className="text-blue-500 mt-0.5">💰</span>
-						<p className="text-gray-700">The bid amount</p>
-					</div>
-					<div className="flex items-start gap-3">
-						<span className="text-blue-500 mt-0.5">🤝</span>
-						<p className="text-gray-700">Who the bidder&apos;s partners are</p>
-					</div>
-					<div className="flex items-start gap-3">
-						<span className="text-blue-500 mt-0.5">🃏</span>
-						<p className="text-gray-700">Which team won the round</p>
-					</div>
+		<main className="min-h-screen bg-emerald-950 flex flex-col items-center justify-center px-6 py-12">
+			<div className="w-full max-w-xs text-center">
+				{/* Decorative card suits */}
+				<div
+					className="flex items-center justify-center gap-5 mb-8 select-none"
+					aria-hidden="true"
+				>
+					<span className="text-3xl text-white/25">♠</span>
+					<span className="text-3xl text-rose-400/60">♥</span>
+					<span className="text-3xl text-rose-400/60">♦</span>
+					<span className="text-3xl text-white/25">♣</span>
 				</div>
+
+				{/* Title */}
+				<h1 className="text-6xl font-extrabold text-white tracking-tight mb-2">
+					Kaali Teeri
+				</h1>
+				<p className="text-emerald-300 font-medium text-lg mb-12">
+					Score Tracker
+				</p>
 
 				{/* CTA */}
 				<Link
 					href="/setup-game"
-					className="inline-flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-lg rounded-xl px-6 py-4 transition-colors"
+					className="flex items-center justify-center gap-2 w-full bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-white font-bold text-xl rounded-2xl px-8 py-5 transition-colors shadow-lg shadow-emerald-950/50"
 				>
-					Setup Game
+					Start Game
 					<span aria-hidden="true">→</span>
 				</Link>
 			</div>

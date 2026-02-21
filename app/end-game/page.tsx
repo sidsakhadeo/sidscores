@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import Header from "@/components/Header";
 import ScoresTable from "@/components/ScoresTable";
 import { useGame } from "@/context/GameContext";
 
@@ -30,38 +29,50 @@ export default function EndGamePage() {
 	}
 
 	return (
-		<main className="min-h-screen bg-white px-4 py-10">
+		<main className="min-h-screen bg-emerald-950 px-4 py-10">
 			<div className="w-full max-w-md mx-auto">
-				<Header title="Results" />
+				{/* Page label */}
+				<p className="text-emerald-400 text-xs font-semibold uppercase tracking-widest text-center mb-8">
+					Game Over
+				</p>
 
-				{/* Winner callout */}
-				<div className="bg-blue-50 border border-blue-200 rounded-2xl p-4 mb-6 text-center">
-					<p className="text-sm text-blue-600 font-medium mb-1">🏆 Winner</p>
-					<p className="text-2xl font-bold text-blue-800">{winner.name}</p>
-					<p className="text-blue-600 font-semibold">{winner.score} points</p>
+				{/* Winner hero card */}
+				<div className="bg-white rounded-3xl p-6 mb-4 text-center shadow-xl shadow-emerald-950/50">
+					<span className="text-5xl mb-3 block" aria-hidden="true">
+						🏆
+					</span>
+					<p className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-1">
+						Winner
+					</p>
+					<p className="text-4xl font-extrabold text-stone-900 mb-1">
+						{winner.name}
+					</p>
+					<p className="text-2xl font-bold text-amber-500">
+						{winner.score} pts
+					</p>
 				</div>
 
-				{/* Final scores table */}
-				<div className="mb-8">
-					<h2 className="text-lg font-semibold text-gray-700 mb-3">
+				{/* Final standings */}
+				<div className="bg-white rounded-3xl p-4 mb-5 shadow-xl shadow-emerald-950/50">
+					<h2 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-3 px-1">
 						Final Standings
 					</h2>
 					<ScoresTable players={sortedPlayers} />
 				</div>
 
-				{/* Round summary */}
-				<div className="mb-8 text-center text-sm text-gray-500">
+				{/* Round count */}
+				<p className="text-center text-emerald-600 text-sm font-medium mb-6">
 					{gameState.rounds.length} round
 					{gameState.rounds.length !== 1 ? "s" : ""} played
-				</div>
+				</p>
 
 				{/* Play Again */}
 				<button
 					type="button"
 					onClick={handlePlayAgain}
-					className="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-lg rounded-xl px-6 py-4 transition-colors"
+					className="w-full bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-white font-extrabold text-lg rounded-2xl px-6 py-4 transition-colors shadow-lg shadow-emerald-950/40"
 				>
-					Play Again
+					Play Again →
 				</button>
 			</div>
 		</main>
